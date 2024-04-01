@@ -1,7 +1,13 @@
 export const Highlights = () => {
   return (
-    <section className="bg-black text-white p-4">
-      <h1 className="text-4xl">Highlights</h1>
+    <section id="highlights" className="w-screen overflow-hidden h-full common-padding bg-zinc">
+      <div className="screen-max-width">
+        <div>
+          <h1 id="title" className="section-heading">
+            Get the highlights.
+          </h1>
+        </div>
+      </div>
     </section>
   )
-}
+} 
