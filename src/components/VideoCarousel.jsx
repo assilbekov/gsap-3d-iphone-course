@@ -54,7 +54,17 @@ export const VideoCarousel = () => {
           <div key={slide.id} id="slider" className="sm:pr-20 pr-10">
             <div className="video-carousel_container">
               <div className="w-full h-full flex-center rounded-3xl overflow-hidden bg-black">
-                <video id="video" playsInline preload="auto" muted>
+                <video
+                  id="video"
+                  ref={el => videoRef.current[i] = el}
+                  playsInline
+                  preload="auto"
+                  muted
+                  onPlay={() => setVideo(prevVideo => ({
+                    ...prevVideo,
+                    isPlaying: true,
+                  }))}
+                >
                   <source src={slide.video} type="video/mp4" />
                 </video>
               </div>
@@ -67,6 +77,20 @@ export const VideoCarousel = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="relative flex-center mt-10">
+        <div className="flex-center py-5 px-7 bg-gray-300 backdrop-blur rounded-full">
+          {videoRef.current.map((_, i) => (
+            <span
+              key={i}
+              ref={el => videoDivRef.current[i] = el}
+              className="mx-2 h-3 w-3 rounded-full bg-gray-200 relative cursor-pointer"
+            >
+              <span className="absolute h-full w-full rounded-full" ref={el => videoSpanRef.current[i] = el} />
+            </span>
+          ))}
+        </div>
       </div>
     </>
   )
