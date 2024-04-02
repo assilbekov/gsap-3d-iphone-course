@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { hightlightsSlides } from "../constants";
 import { pauseImg, playImg, replayImg } from "../utils";
 
-const VideoCarousel = () => {
+export const VideoCarousel = () => {
   const videoRef = useRef([]);
   const videoSpanRef = useRef([]);
   const videoDivRef = useRef([]);
@@ -229,5 +229,3 @@ const VideoCarousel = () => {
     </>
   );
 };
-
-export default VideoCarousel;
